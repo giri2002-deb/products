@@ -1,0 +1,96 @@
+/* General Styles */
+body {
+  font-family: 'Lato', sans-serif;
+  background: #f3f4f6;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px; /* Add space between rows */
+}
+
+/* Glassmorphic Box */
+.glassBox {
+  position: relative;
+  width: 300px; /* Default size */
+  border-radius: 15px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover Animation for Glass Box */
+.glassBox:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Image Container */
+.glassBox__imgBox {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.glassBox__imgBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.glassBox:hover .glassBox__imgBox img {
+  transform: scale(1.1); /* Slight zoom-in effect */
+}
+
+/* Title */
+.glassBox__title {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Content */
+.glassBox__content {
+  padding: 15px;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+/* Responsive Design */
+
+/* For mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  body {
+      flex-direction: column; /* Stack items vertically */
+      align-items: center; /* Center-align the cards */
+      gap: 20px; /* Reduce spacing for mobile */
+  }
+
+  .glassBox {
+      width: 100%; /* Full-width product cards */
+      max-width: 400px; /* Limit maximum width for better layout */
+  }
+
+  .glassBox__imgBox {
+      height: auto; /* Auto height to maintain aspect ratio */
+  }
+
+  .glassBox__imgBox img {
+      height: auto; /* Maintain image aspect ratio */
+      object-fit: contain; /* Ensure full image visibility */
+  }
+}
